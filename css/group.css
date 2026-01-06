@@ -1,0 +1,713 @@
+/* Main Layout */
+body {
+	background-color: #202024;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	overflow: hidden;
+	/* Main scroll disabled */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Layout Frame: Full Viewport */
+.layout-frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Background Layer */
+.background-layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.bg-graphic {
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	transform: none;
+	top: auto;
+	opacity: 1;
+	height: 90%;
+	/* Relative to frame height */
+	max-height: 800px;
+	z-index: 1;
+}
+
+/* Ribbon Container & Marquee */
+.ribbon-container {
+	position: absolute;
+	top: -10px;
+	/* Moved down from -50px */
+	left: -20px;
+	width: 130%;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.ribbon-bg {
+	width: 100%;
+	height: auto;
+	display: block;
+	transform: translate(-3%, -5%);
+	/* Adjusted translation */
+}
+
+/* Marquee Logic */
+.marquee-wrapper {
+	position: absolute;
+	top: 15.4%;
+	/* Percentage-based positioning to maintain alignment with scaling background */
+	left: 0;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	overflow: hidden;
+	transform: rotate(-16deg);
+	transform-origin: 0 0;
+	align-items: center;
+}
+
+.marquee-content {
+	display: flex;
+	white-space: nowrap;
+	animation: marquee 25s linear infinite;
+	gap: 60px;
+	padding-right: 60px;
+}
+
+.ribbon-item {
+	font-weight: 700;
+	color: #0c0f16;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.icon-star {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+/* Center Stage */
+.center-stage {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 80px;
+	z-index: 10;
+	height: 100%;
+	max-height: 700px;
+}
+
+/* Left Stage */
+.stage-left {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	text-align: center;
+	padding-right: 20px;
+}
+
+.brand-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 40px;
+	/* Shifted left */
+}
+
+.gorilla-logo {
+	width: 155px;
+	/* Increased size */
+	height: auto;
+}
+
+.brand-name {
+	margin-top: -10px;
+	font-family: 'Inter', sans-serif;
+	font-size: 80px;
+	/* Increased size */
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -4px;
+	white-space: nowrap;
+}
+
+.brand-name .highlight {
+	color: #fff;
+}
+
+.brand-name .extension {
+	font-weight: 300;
+	font-size: 52px;
+}
+
+/* Divider */
+.stage-divider {
+	width: 1px;
+	height: 480px;
+	background-color: #353434;
+	flex-shrink: 0;
+}
+
+/* Right Stage */
+.stage-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 480px;
+	padding-left: 20px;
+}
+
+/* Intro Text */
+.intro-text {
+	text-align: center;
+	/* Centered as requested */
+	margin-bottom: 40px;
+}
+
+.intro-small {
+	font-size: 13px;
+	color: #acadae;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.intro-title {
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.intro-title strong {
+	font-weight: 800;
+}
+
+/* Form Styles */
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.form-group label {
+	font-size: 13px;
+	color: #fff;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.form-group label span {
+	color: #fe6d6d;
+}
+
+.form-input {
+	width: 100%;
+	background-color: #14161a;
+	border: 1px solid #2a2d35;
+	border-radius: 12px;
+	padding: 18px 20px;
+	color: #b7b7b7;
+	font-size: 14px;
+	outline: none;
+	transition: border-color 0.2s;
+	box-sizing: border-box;
+}
+
+.form-input:focus {
+	border-color: #ff6c00;
+}
+
+.btn {
+	width: 100%;
+	padding: 18px;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	text-align: center;
+	border: none;
+}
+
+.btn-signin {
+	background-color: #ff6c00;
+	color: #fff;
+	margin-bottom: 12px;
+}
+
+.btn-register {
+	background-color: transparent;
+	border: 1px solid #353434;
+	color: #ff6c00;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.divider {
+	text-align: center;
+	font-size: 11px;
+	color: #acadae;
+	position: relative;
+	margin: 15px 0;
+}
+
+.divider::before,
+.divider::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	width: 25%;
+	height: 1px;
+	background: #353434;
+	/* Shortened width to 25% */
+}
+
+.divider::before {
+	left: 0;
+}
+
+.divider::after {
+	right: 0;
+}
+
+.google-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	background-color: transparent;
+	/* Changed to transparent */
+	border: 1px solid #fff;
+	/* Changed to white */
+	color: #fff;
+	padding: 16px;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+
+/* Floating Footer Elements */
+
+.support-card {
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
+	background: linear-gradient(135deg, #ff9a5e, #ff6c00);
+	padding: 15px 20px;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	color: #fff;
+	min-width: 260px;
+	height: 90px;
+	z-index: 20;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	overflow: visible;
+	/* Allowing monkey to overflow */
+}
+
+.support-image {
+	position: absolute;
+	left: 0px;
+	/* Set to 0px as requested */
+	bottom: 0;
+	width: 120px;
+	/* Larger image */
+	height: auto;
+	object-fit: contain;
+	transform: rotate(180deg);
+	z-index: 21;
+	/* On top of card */
+}
+
+.support-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 100px;
+	/* Spacing for the absolute image */
+}
+
+.support-text h4 {
+	font-size: 18px;
+	margin: 0;
+	font-weight: 700;
+	line-height: 1.1;
+}
+
+.support-text p {
+	font-size: 12px;
+	line-height: 1.2;
+	margin: 0;
+	opacity: 0.9;
+}
+
+.circle-white-icon {
+	width: 28px;
+	height: 28px;
+	background: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+.circle-white-icon object {
+	width: 12px;
+	height: 12px;
+}
+
+
+.footer-centered {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	z-index: 20;
+	pointer-events: none;
+}
+
+.footer-links {
+	pointer-events: auto;
+	display: flex;
+	gap: 40px;
+}
+
+.footer-links a {
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+	opacity: 0.7;
+	font-weight: 500;
+	transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+	opacity: 1;
+}
+
+.muez-logo-fixed {
+	position: absolute;
+	bottom: 40px;
+	right: 60px;
+	z-index: 20;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+
+	/* Fix tablet overlap: Enable scroll and ensure min-height */
+	body {
+		overflow-y: auto;
+		height: auto;
+	}
+
+	.layout-frame {
+		min-height: 850px;
+		/* Ensure enough space for content + footers */
+		position: relative;
+		overflow: visible;
+		height: auto;
+	}
+
+	.bg-graphic {
+		left: 0;
+		height: 60vh;
+		bottom: 0;
+		opacity: 0.5;
+	}
+
+	.center-stage {
+		position: relative;
+		top: auto;
+		left: auto;
+		transform: none;
+		margin: 80px auto 40px auto;
+		/* Center horizontally with top margin */
+		padding: 0 40px;
+		gap: 20px;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+	}
+
+	.support-card {
+		position: absolute;
+		bottom: 30px;
+		/* Anchored to bottom */
+		left: 40px;
+		/* Align with padding */
+		z-index: 50;
+		/* Ensure on top */
+	}
+
+	/* Fix overlap if height is small vertical space */
+	@media (max-height: 900px) {
+		.support-card {
+			position: relative;
+			margin: 20px 0 0 50px;
+			/* Aligned left */
+			width: 100%;
+			max-width: 350px;
+			/* Enforce card shape */
+			border-radius: 40px;
+			/* Maintain rounded look */
+		}
+
+		/* Ensure footer flows below content */
+		.footer-centered {
+			position: relative;
+			bottom: auto;
+			left: auto;
+			margin-top: 40px;
+			padding-bottom: 20px;
+			width: 100%;
+			justify-content: center;
+		}
+
+		.muez-logo-fixed {
+			position: relative;
+			bottom: auto;
+			right: auto;
+			margin-top: 20px;
+			padding-bottom: 40px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+}
+
+/* Specific fix for Laptop screens (short height) */
+@media (min-width: 1101px) and (max-height: 800px) {
+
+	.form-input,
+	.btn,
+	.google-btn {
+		height: 48px;
+		/* Compact height */
+		padding: 0 15px;
+	}
+
+	.form-group {
+		margin-bottom: 15px;
+		/* Reduced margin */
+	}
+
+	.btn-signin {
+		margin-bottom: 10px;
+	}
+
+	.divider {
+		margin: 15px 0;
+	}
+
+	/* Adjust footer to be relative if needed, or just cleaner absolute */
+	.footer-centered {
+		bottom: 20px;
+	}
+
+	.muez-logo-fixed {
+		bottom: 20px;
+	}
+}
+
+@media (max-width: 900px) {
+	.brand-group {
+		margin-right: 0;
+		/* Fix off-center logo */
+	}
+
+	body {
+		overflow-y: auto;
+		height: auto;
+		display: block;
+	}
+
+	.layout-frame {
+		max-width: none;
+		max-height: none;
+		aspect-ratio: auto;
+		height: auto;
+		overflow: visible;
+	}
+
+	.background-layer {
+		position: absolute;
+	}
+
+	.center-stage {
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: none;
+		flex-direction: column;
+		padding: 140px 20px 60px 20px;
+		height: auto;
+		max-height: none;
+		gap: 20px;
+		/* Reduced gap */
+	}
+
+	.stage-divider {
+		display: none;
+		/* Hide divider */
+	}
+
+	.intro-text {
+		margin-bottom: 25px;
+		/* Reduced margin */
+	}
+
+	.intro-title strong {
+		background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+		background-size: 1800% 1800%;
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		color: #fff;
+		padding: 2px 8px;
+		border-radius: 6px;
+		animation: rainbow 10s ease infinite;
+		font-weight: 800;
+	}
+
+	.aesthetic-underline {
+		position: relative;
+		display: inline-block;
+	}
+
+	.aesthetic-underline::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 2px;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(90deg, #ff9a5e, #ff6c00);
+		border-radius: 2px;
+		opacity: 0.8;
+	}
+
+	/* Reduce button spacing */
+	.login-form {
+		gap: 12px;
+		/* Reduced from 20px */
+	}
+
+	.btn-signin {
+		margin-bottom: 8px;
+		/* Reduced from 12px */
+	}
+
+	.google-btn {
+		padding: 12px;
+		/* Slightly compact */
+	}
+
+	.gorilla-logo {
+		/* Adaptive light effect for mobile - subtle background glow */
+		filter: drop-shadow(0 0 30px rgba(255, 108, 0, 0.25));
+	}
+
+	/* Restoration of responsive layout fixes */
+	.ribbon-container {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 85px;
+		background: linear-gradient(135deg, #ff9a5e, #ff6c00);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.ribbon-bg {
+		display: none;
+	}
+
+	.marquee-wrapper {
+		top: 0;
+		height: 100%;
+		transform: rotate(0deg);
+	}
+
+	.support-card {
+		position: relative;
+		bottom: auto;
+		left: auto;
+		margin: 40px auto 30px auto;
+		width: 100%;
+		max-width: 350px;
+	}
+
+	.footer-centered {
+		position: relative;
+		bottom: auto;
+		margin-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.muez-logo-fixed {
+		position: relative;
+		bottom: auto;
+		right: auto;
+		text-align: center;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		padding-bottom: 40px;
+	}
+}
+
+@keyframes rainbow {
+	0% {
+		background-position: 0% 82%
+	}
+
+	50% {
+		background-position: 100% 19%
+	}
+
+	100% {
+		background-position: 0% 82%
+	}
+}

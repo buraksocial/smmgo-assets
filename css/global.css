@@ -1,0 +1,82 @@
+
+:root {
+	/* responsive margins / paddings */
+	--margin-sm: 16px;
+	--margin-md: 32px;
+}
+
+* {
+	--min-screen-size: 430;
+	--max-screen-size: 1411;
+	--interpolate-diff: calc(var(--max-font-size) - var(--min-font-size));
+	--interpolate: clamp(calc(var(--min-font-size) * 1px), calc((var(--min-font-size) * 1px) + var(--interpolate-diff) * ((100vw - calc(var(--min-screen-size) * 1px)) / (var(--max-screen-size) - var(--min-screen-size)))), calc(var(--max-font-size) * 1px));
+}
+
+html {
+	height: 100%;
+	font-size: 16px;
+}
+
+
+
+/* text utility classes */
+
+.text {
+	color: #fe6d6d;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 0.95;
+}
+
+.text-gray {
+	color: #b7b7b7;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 0.95;
+	letter-spacing: 0px;
+}
+
+.text-white {
+	color: #fefefe;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 0.95;
+}
+
+.sub-text {
+	font-family: 'Inter';
+	font-weight: 400;
+	letter-spacing: -3.8px;
+}
+
+.bold2 {
+	font-weight: 800;
+}
+
+.bold {
+	letter-spacing: -3.8px;
+}
+
+
+
+/* ui objects utility classes */
+
+.card {
+	border-radius: 7px;
+}
+
+.input-black {
+	background-color: #1c1c1c;
+	padding: 20px 14px 0 14px;
+	border: 1px solid rgba(65, 65, 70, 0.62);
+	border-radius: 11px;
+}
+
+
+
+/* button hover utility classes */
+
+.hover-bright:hover {
+	filter: brightness(1.2);
+}
